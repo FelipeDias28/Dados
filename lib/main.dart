@@ -14,15 +14,34 @@ class Dadoos extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.teal.shade700,
-        body: Row(
-          children: [
-            Expanded(
-              child: Image.asset('imagens/dado1.png'),
-            ),
-            Expanded(
-              child: Image.asset('imagens/dado1.png'),
-            ),
-          ],
+        appBar: AppBar(
+          title: Text(
+            'Dadoos',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.teal.shade900,
+        ),
+        body: Center(
+          child: Row(
+            children: [
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    print('Botão esquerdo pressionado');
+                  },
+                  child: Image.asset('imagens/dado1.png'),
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    print('Botão direito pressionado');
+                  },
+                  child: Image.asset('imagens/dado1.png'),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
