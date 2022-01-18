@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   return runApp(
@@ -36,7 +37,8 @@ class _DadoosState extends State<Dadoos> {
                 child: TextButton(
                   onPressed: () {
                     setState(() {
-                      numeroDadoEsquerdo = 3;
+                      numeroDadoEsquerdo = Random().nextInt(6) +
+                          1; // Gera numeros aleatório de 0 ... 5
                     });
                     print('Botão esquerdo pressionado');
                   },
@@ -46,6 +48,9 @@ class _DadoosState extends State<Dadoos> {
               Expanded(
                 child: TextButton(
                   onPressed: () {
+                    setState(() {
+                      numeroDadoDireito = Random().nextInt(6) + 1;
+                    });
                     print('Botão direito pressionado');
                   },
                   child: Image.asset('imagens/dado$numeroDadoDireito.png'),
