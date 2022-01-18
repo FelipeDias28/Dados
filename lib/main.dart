@@ -6,8 +6,16 @@ void main() {
   );
 }
 
-class Dadoos extends StatelessWidget {
-  const Dadoos({key}) : super(key: key);
+class Dadoos extends StatefulWidget {
+  Dadoos({key}) : super(key: key);
+
+  @override
+  State<Dadoos> createState() => _DadoosState();
+}
+
+class _DadoosState extends State<Dadoos> {
+  int numeroDadoEsquerdo = 1;
+  int numeroDadoDireito = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +35,12 @@ class Dadoos extends StatelessWidget {
               Expanded(
                 child: TextButton(
                   onPressed: () {
+                    setState(() {
+                      numeroDadoEsquerdo = 3;
+                    });
                     print('Botão esquerdo pressionado');
                   },
-                  child: Image.asset('imagens/dado1.png'),
+                  child: Image.asset('imagens/dado$numeroDadoEsquerdo.png'),
                 ),
               ),
               Expanded(
@@ -37,7 +48,7 @@ class Dadoos extends StatelessWidget {
                   onPressed: () {
                     print('Botão direito pressionado');
                   },
-                  child: Image.asset('imagens/dado1.png'),
+                  child: Image.asset('imagens/dado$numeroDadoDireito.png'),
                 ),
               ),
             ],
